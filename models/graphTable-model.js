@@ -25,6 +25,6 @@ async function insert(rowData) {
 		.then(id => {
 			db('graphTable').where({ name: rowData.name });
 		})
-		.catch(err => throw err));
+		.catch(err => {throw err});
 }
 
