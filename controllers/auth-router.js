@@ -4,7 +4,6 @@ const bcrypt = require('bcryptjs');
 const passport = require('passport');
 const Users = require('../models/user-models');
 
-// Login with google
 router.get(
 	'/google',
 	passport.authenticate('google', {
@@ -13,12 +12,10 @@ router.get(
 	})
 );
 
-// google login redirect
 router.get(
 	'/google/redirect',
 	passport.authenticate('google', { failureRedirect: '/' }),
 	(req, res) => {
-		console.log('req', req.user);
 		res
 			.status(200)
 			.cookie('token', res.req.authInfo)
@@ -27,7 +24,6 @@ router.get(
 	}
 );
 
-// Login with facebook
 router.get(
 	'/facebook',
 	passport.authenticate('facebook', {
@@ -36,7 +32,6 @@ router.get(
 	})
 );
 
-// facebook login redirect
 router.get(
 	'/facebook/redirect',
 	passport.authenticate('facebook'),

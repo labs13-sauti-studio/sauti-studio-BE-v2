@@ -1,8 +1,7 @@
-// ./seeds/00-cleanup.js
 const cleaner = require('knex-cleaner');
 
 exports.up = function(knex, Promise) {
-  return knex.raw(`
+	return knex.raw(`
         DROP TABLE IF EXISTS
         responses,
         graphTable,
@@ -13,6 +12,4 @@ exports.up = function(knex, Promise) {
         workflows,
         settings CASCADE;`);
 };
-exports.down = function(knex, Promise) {
-  // return cleaner.clean(knex); // cleans all tables and resets the primary keys
-};
+exports.down = function(knex, Promise) {};
